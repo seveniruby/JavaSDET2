@@ -13,7 +13,4 @@ public class Division {
         }
     }
 
-    public Integer divid2(Integer a, Integer b, Integer c) {
-        return divid(a, b) / c;
-    }
 }
