@@ -53,6 +53,19 @@ public class DivisionTest {
 
         assertThat(division2.divid2(0, 1 ,5, mockDivision), equalTo(0));
 
+    }
+
+    @Test
+    public void divid3(){
+        Division2 mockDivision2=mock(Division2.class);
+        when(mockDivision2.divid3(anyInt(), anyInt(), anyInt())).thenCallRealMethod();
+
+        when(mockDivision2.divid(anyInt(), anyInt())).thenReturn(10);
+        assertThat(mockDivision2.divid3(0, 0, 5), equalTo(2));
+
+        when(mockDivision2.divid(anyInt(), anyInt())).thenReturn(100);
+        assertThat(mockDivision2.divid3(0, 0, 5), equalTo(0));
+
 
     }
 }
