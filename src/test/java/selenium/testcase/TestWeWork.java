@@ -10,12 +10,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import selenium.page.App;
 
+import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 public class TestWeWork {
     public static App app;
     @BeforeClass
-    public static void beforeAll(){
+    public static void beforeAll() throws MalformedURLException {
         app=new App();
         app.loginWithCookie();
         String phone="15600534762";
