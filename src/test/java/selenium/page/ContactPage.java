@@ -23,7 +23,7 @@ public class ContactPage extends BasePage{
         findElement(By.id("memberSearchInput")).clear();
         findElement(By.id("memberSearchInput")).sendKeys(keyword);
         try{
-            waitClickable(By.linkText("编辑"));
+            waitClickable(By.linkText("编辑"), 2);
         }catch (Exception e){
             System.out.println("not found");
             return this;
@@ -40,6 +40,11 @@ public class ContactPage extends BasePage{
 //        Select select=new Select(findElement(By.cssSelector(".ww_checkbox")));
 //        select.getFirstSelectedOption().click();
 //        select.selectByIndex(0);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         waitClickable(By.cssSelector(".ww_checkbox"));
         List<WebElement> elements=driver.findElements(By.cssSelector(".ww_checkbox"));
         for(int i=1;i<elements.size();i++){
@@ -54,6 +59,14 @@ public class ContactPage extends BasePage{
         findElement(By.linkText("删除")).click();
         findElement(By.linkText("确认")).click();
         return this;
+    }
+
+    public void importFromFile(String path){
+        findElement(By.partialLinkText("批量导入/导出")).click();
+        findElement(By.linkText("文件导入")).click();
+        findElement(By.id("js_upload_file_input"), 0).sendKeys(path);
+        findElement(By.id("submit_csv")).click();
+        findElement(By.linkText("完成")).click();
     }
 
     public void list(){

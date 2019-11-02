@@ -39,6 +39,11 @@ public class TestWeWork {
         app.toContact().deleteCurrentPage();
     }
 
+    @Test
+    public void importFromFile(){
+        app.toContact().importFromFile("/Users/seveniruby/Downloads/通讯录批量导入模板.xlsx");
+    }
+
     @AfterClass
     public static void afterAll() throws InterruptedException {
         app.quit();
