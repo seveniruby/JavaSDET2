@@ -19,11 +19,13 @@ public class App extends BasePage {
         System.out.println(driver.manage().getCookies());
 
         driver.manage().addCookie(new Cookie("wwrtx.refid", "9156994571588966"));
-        driver.manage().addCookie(new Cookie("wwrtx.sid", "PvmFAAW3_ZQOnOfp5SzMi6G2ksLVrBXqM1nz3SnTzUm58TfxXhPA3kekfJjTJMK1"));
+//        driver.manage().addCookie(new Cookie("wwrtx.sid", "PvmFAAW3_ZQOnOfp5SzMi6G2ksLVrBXqM1nz3SnTzUm58TfxXhPA3kekfJjTJMK1"));
+        driver.manage().addCookie(new Cookie("wwrtx.sid", "PvmFAAW3_ZQOnOfp5SzMi5tkp2rMpNclSpq9ybt_pT1A-Y6z1C1Zx7f06qrRVCcR"));
         driver.navigate().refresh();
         return this;
     }
     public ContactPage toContact(){
+        findElement(By.linkText("通讯录")).click();
         return new ContactPage();
 
     }

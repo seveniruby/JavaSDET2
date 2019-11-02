@@ -1,5 +1,6 @@
 package selenium.testcase;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -17,11 +18,26 @@ public class TestWeWork {
     public static void beforeAll(){
         app=new App();
         app.loginWithCookie();
+        String phone="15600534762";
+        app.toContact().delete(phone);
     }
     @Test
-    public void testStart(){
+    public void add(){
         String phone="15600534762";
         app.toMemberAdd().add(phone, phone, phone);
 //        assertThat();
     }
+
+    @Test
+    public void delete(){
+        String phone="15600534763";
+        app.toMemberAdd().add(phone, phone, phone).delete(phone);
+    }
+
+    @AfterClass
+    public static void afterAll() throws InterruptedException {
+        app.quit();
+    }
+
+
 }
