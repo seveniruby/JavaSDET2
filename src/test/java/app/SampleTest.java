@@ -22,12 +22,13 @@ public class SampleTest {
         desiredCapabilities.setCapability("platformName", "android");
         desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
         desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
-        desiredCapabilities.setCapability("noReset", true);
+        desiredCapabilities.setCapability("noReset", false);
+        desiredCapabilities.setCapability("autoGrantPermissions", true);
 
         URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub");
 
         driver = new AndroidDriver(remoteUrl, desiredCapabilities);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
     @Test
