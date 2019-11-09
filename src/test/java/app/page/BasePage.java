@@ -50,4 +50,19 @@ public class BasePage {
         });
     }
 
+    private static void handleAlertByPageSource(){
+        //todo: xpath匹配， 标记 定位
+        String xml=driver.getPageSource();
+        List<String> alertBoxs=new ArrayList<>();
+        alertBoxs.add("xxx");
+        alertBoxs.add("yyy");
+
+        alertBoxs.forEach(alert -> {
+            if(xml.contains(alert)){
+                driver.findElement(By.id(alert)).click();
+            }
+        });
+
+    }
+
 }
