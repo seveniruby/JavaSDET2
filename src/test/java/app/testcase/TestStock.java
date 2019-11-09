@@ -2,16 +2,15 @@ package app.testcase;
 
 import app.page.App;
 import app.page.StockPage;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.net.MalformedURLException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
+import static org.hamcrest.Matchers.*;
 
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TestStock {
     private static StockPage stockPage;
     @BeforeAll
@@ -24,6 +23,7 @@ public class TestStock {
     public void beforeEach(){
 
     }
+    @Order(100)
     @Test
     public void addDefaultSelectedStocks(){
         if(stockPage.getAllStocks().size()>=1){
@@ -31,4 +31,13 @@ public class TestStock {
         }
         assertThat(stockPage.addDefaultSelectedStocks().getAllStocks().size(), greaterThanOrEqualTo(6));
     }
+
+    @Order(200)
+    @Test
+    public void addStock(){
+        stockPage.toSearch().search("pdd").select().cancel();
+        assertThat(stockPage.getAllStocks(), hasItem("拼多多"));
+
+    }
+
 }
