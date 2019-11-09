@@ -13,6 +13,7 @@ public class BasePage {
 
     public static WebElement findElement(By by) {
         //todo: 递归是更好的
+        //todo: 如果定位的元素是动态变化位置
 
         try {
             return driver.findElement(by);
@@ -23,7 +24,7 @@ public class BasePage {
         }
     }
 
-    public static void findElementAndClick(By by) {
+    public static void click(By by) {
         //todo: 递归是更好的
 
         try {
