@@ -17,4 +17,9 @@ public class SearchPage extends BasePage{
         return Float.valueOf(el4.getText());
 
     }
+
+    public App cancel(){
+        findElementAndClick(By.id("com.xueqiu.android:id/action_close"));
+        return new App();
+    }
 }
