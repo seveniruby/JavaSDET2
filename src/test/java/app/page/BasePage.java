@@ -78,7 +78,7 @@ public class BasePage {
                 ads.get(0).click();
             }
         });
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     private static void handleAlertByPageSource(){
