@@ -1,54 +1,54 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
 package selenium.testcase;
 
+import java.net.MalformedURLException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import selenium.page.App;
-
-import java.net.MalformedURLException;
-import java.util.concurrent.TimeUnit;
 
 public class TestWeWork {
     public static App app;
+
+    public TestWeWork() {
+    }
+
     @BeforeClass
     public static void beforeAll() throws MalformedURLException {
-        app=new App();
+        app = new App();
         app.loginWithCookie();
-        String phone="15600534762";
+        String phone = "18858285384";
         app.toContact().delete(phone);
-    }
-    @Test
-    public void add(){
-        String phone="15600534762";
-        app.toMemberAdd().add(phone, phone, phone);
-//        assertThat();
     }
 
     @Test
-    public void delete(){
-        String phone="15600534763";
+    public void add() {
+        String phone = "18858285384";
+        app.toMemberAdd().add(phone, phone, phone);
+    }
+
+    @Test
+    public void delete() {
+        String phone = "18858285384";
         app.toMemberAdd().add(phone, phone, phone).delete(phone);
     }
 
     @Test
-    public void deleteCurrentPage(){
+    public void deleteCurrentPage() {
         app.toContact().deleteCurrentPage();
     }
 
     @Test
-    public void importFromFile(){
-        app.toContact().importFromFile("/Users/seveniruby/Downloads/通讯录批量导入模板.xlsx");
+    public void importFromFile() {
+        app.toContact().importFromFile("E://UIAUTO/通讯录批量导入模板.xlsx");
     }
 
     @AfterClass
     public static void afterAll() throws InterruptedException {
         app.quit();
     }
-
-
 }

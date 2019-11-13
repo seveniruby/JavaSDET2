@@ -1,3 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
 # Project exclude paths
 /target/
+.idea
