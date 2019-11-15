@@ -18,6 +18,7 @@ public class App extends BasePage{
         desiredCapabilities.setCapability("platformName", "android");
         desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
         desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
+        desiredCapabilities.setCapability("deviceName", "HMKDU17213021548");
         desiredCapabilities.setCapability("noReset", false);
         desiredCapabilities.setCapability("autoGrantPermissions", true);
 

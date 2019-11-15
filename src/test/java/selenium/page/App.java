@@ -28,7 +28,7 @@ public class App extends BasePage {
         driver.findElement(By.linkText("企业登录")).click();
         System.out.println(driver.manage().getCookies());
         driver.manage().addCookie(new Cookie("wwrtx.refid", "25907885701682103"));
-        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0fGtpNSNW0GgvnCH0Ko-LjmbLaau-dI0f5Q5W_0BwJ46"));
+        driver.manage().addCookie(new Cookie("wwrtx.sid", "vz8lc5ZbIh9dARjpPCqf0TEDvj_BicTLReaQAjhGU_yLut7a76h2dD2-ZhikdufP"));
         driver.navigate().refresh();
         return this;
     }
