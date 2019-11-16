@@ -31,6 +31,12 @@ public class BasePage {
 
     private static HashMap<String, Object> params=new HashMap<>();
 
+    public static HashMap<String, Object> getResults() {
+        return results;
+    }
+
+    private static HashMap<String, Object> results=new HashMap<>();
+
     public static WebElement findElement(By by) {
         //todo: 递归是更好的
         //todo: 如果定位的元素是动态变化位置
@@ -111,6 +117,11 @@ public class BasePage {
 
     }
 
+    public void parseSteps(){
+        String method=Thread.currentThread().getStackTrace()[2].getMethodName();
+        System.out.println(method);
+        parseSteps(method);
+    }
     public void parseSteps(String method) {
 //        HashMap<String, List<HashMap<String, String>>> 可以取消steps的多余关键字
         //TODO: 参数化，把关键数据参数化到你的yaml中
@@ -182,7 +193,9 @@ public class BasePage {
                 element.sendKeys(send);
 
             }else if(step.get("get")!=null){
-                element.getAttribute(step.get("get"));
+                String attribute=element.getAttribute(step.get("get"));
+                results.put(step.get("dump"), attribute);
+
             }else{
                 element.click();
             }

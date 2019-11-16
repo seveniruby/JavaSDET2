@@ -14,25 +14,29 @@ public class SearchPage extends BasePage{
         HashMap<String, Object> data=new HashMap<>();
         data.put("keyword", keyword);
         setParams(data);
-        parseSteps("search");
+        parseSteps();
 //        App.driver.findElement(inputBox).sendKeys(keyword);
 //        click(name);
         return this;
     }
 
     public Float getCurrentPrice() {
-        MobileElement el4 = (MobileElement) findElement(By.id("com.xueqiu.android:id/current_price"));
-        return Float.valueOf(el4.getText());
+        parseSteps();
+//        MobileElement el4 = (MobileElement) findElement(By.id("com.xueqiu.android:id/current_price"));
+        return Float.valueOf(getResults().get("price").toString());
 
     }
 
     public App cancel(){
-        click(By.id("com.xueqiu.android:id/action_close"));
+//        click(By.id("com.xueqiu.android:id/action_close"));
+        parseSteps();
         return new App();
+
     }
 
     public SearchPage select(){
-        click(By.id("com.xueqiu.android:id/follow_btn"));
+//        click(By.id("com.xueqiu.android:id/follow_btn"));
+        parseSteps();
         return this;
     }
 }

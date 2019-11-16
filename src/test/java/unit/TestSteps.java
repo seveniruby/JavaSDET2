@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,5 +40,13 @@ public class TestSteps {
         App.start();
         BasePage basePage=new BasePage();
         basePage.parseSteps("search");
+    }
+    @Test
+    public void demo(){
+        Arrays.stream(Thread.currentThread().getStackTrace()).forEach(stack->{
+            System.out.println(stack.getClassName()+ ":" + stack.getMethodName());
+        });
+
+        System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 }
