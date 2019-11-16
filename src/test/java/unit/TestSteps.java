@@ -1,8 +1,6 @@
 package unit;
 
-import app.page.App;
-import app.page.BasePage;
-import app.page.TestCaseSteps;
+import app.page.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -17,8 +15,8 @@ import java.util.List;
 public class TestSteps {
     @Test
     public void  steps() throws JsonProcessingException {
-        HashMap<String, TestCaseSteps> testcase=new HashMap<String, TestCaseSteps>();
-        TestCaseSteps testcaseStep=new TestCaseSteps();
+        HashMap<String, PageObjectMethod> testcase=new HashMap<String, PageObjectMethod>();
+        PageObjectMethod testcaseStep=new PageObjectMethod();
         List<HashMap<String, String>> steps=new ArrayList<>();
 
         HashMap<String, String> map=new HashMap<>();
@@ -37,7 +35,7 @@ public class TestSteps {
 
     @Test
     public void parseSteps() throws MalformedURLException {
-        App.start();
+        App.getInstance().start();
         BasePage basePage=new BasePage();
         basePage.parseSteps("search");
     }
@@ -48,5 +46,33 @@ public class TestSteps {
         });
 
         System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName());
+    }
+
+    @Test
+    public void testPOM() throws JsonProcessingException {
+        PageObjectModel model=new PageObjectModel();
+        PageObjectElement element=new PageObjectElement();
+
+        HashMap<String, String> map2=new HashMap<>();
+        map2.put("id", "xxxx");
+        map2.put("xpath", "xxxx");
+
+        element.element.add(map2);
+        model.elements.put("search_locator", element);
+
+        PageObjectMethod method=new PageObjectMethod();
+        List<HashMap<String, String>> steps=new ArrayList<>();
+
+        HashMap<String, String> map=new HashMap<>();
+        map.put("id", "xxxx");
+        map.put("send", "xxxx");
+        steps.add(map);
+        steps.add(map);
+        method.setSteps(steps);
+        model.methods.put("search", method);
+        ObjectMapper mapper=new ObjectMapper(new YAMLFactory());
+
+        System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(model));
+
     }
 }

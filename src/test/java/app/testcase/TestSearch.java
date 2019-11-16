@@ -24,7 +24,7 @@ public class TestSearch {
     public static SearchPage searchPage;
     @BeforeClass
     public static void beforeAll() throws MalformedURLException {
-        App.start();
+        App.getInstance().start();
 
     }
 
@@ -52,12 +52,17 @@ public class TestSearch {
 
     @Before
     public void before(){
-        searchPage=App.toSearch();
+        searchPage=App.getInstance().toSearch();
     }
     @Test
     public void search() throws IOException {
         assertThat(searchPage.search(stock).getCurrentPrice(), greaterThanOrEqualTo(price.floatValue()));
     }
+//    @Test
+//    public void demo(){
+//        PageObjectModel.run("search").get("result")
+//    }
+
     @After
     public void after(){
         searchPage.cancel();
