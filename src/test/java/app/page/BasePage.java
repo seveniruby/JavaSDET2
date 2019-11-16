@@ -15,10 +15,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class BasePage {
     public static AndroidDriver<WebElement> driver;
+
+    public HashMap<String, Object> getParams() {
+        return params;
+    }
+
+    public void setParams(HashMap<String, Object> params) {
+        this.params = params;
+    }
+
+    private static HashMap<String, Object> params=new HashMap<>();
 
     public static WebElement findElement(By by) {
         //todo: 递归是更好的
@@ -153,9 +164,23 @@ public class BasePage {
             }
 
             String send=step.get("send");
-//            send.replaceAll("{.*}", "dd")
+//            params.entrySet().forEach(kv->{
+//                send=send.replace("{"+ kv.getKey() +"}", kv.getValue().toString());
+//            });
+
+
+
             if(send!=null){
+                //配置文件中的参数替换
+                for(Map.Entry<String, Object> kv: params.entrySet()){
+                    String matcher="${"+kv.getKey()+"}";
+                    if(send.contains(matcher)) {
+                        System.out.println(kv);
+                        send = send.replace(matcher, kv.getValue().toString());
+                    }
+                }
                 element.sendKeys(send);
+
             }else if(step.get("get")!=null){
                 element.getAttribute(step.get("get"));
             }else{
@@ -164,6 +189,4 @@ public class BasePage {
 
         });
     }
-
-
 }
