@@ -1,0 +1,6 @@
+search:
+  steps:
+    - id: search_input_text
+      send: pdd
+#      send: {keyword}
+    - id: name
