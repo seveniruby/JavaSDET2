@@ -155,13 +155,13 @@ public class BasePage {
             //todo: 多个可能定位，多平台支持，多版本的支持
             String id=step.get("id");
             if(id!=null){
-                element=driver.findElement(By.id(id));
+                element=findElement(By.id(id));
             }else if(step.get("xpath")!=null){
-                element=driver.findElement(By.xpath(step.get("xpath")));
+                element=findElement(By.xpath(step.get("xpath")));
             }else if(step.get("aid")!=null){
-                element=driver.findElement(MobileBy.AccessibilityId(step.get("aid")));
+                element=findElement(MobileBy.AccessibilityId(step.get("aid")));
             }else if(step.get("element")!=null){
-                element=driver.findElement(model.elements.get(step.get("element")).getLocator());
+                element=findElement(model.elements.get(step.get("element")).getLocator());
             }
 
             String send=step.get("send");

@@ -1,10 +1,7 @@
 package app.page;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
@@ -27,6 +24,7 @@ public class App extends BasePage{
         desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
         desiredCapabilities.setCapability("noReset", false);
         desiredCapabilities.setCapability("autoGrantPermissions", true);
+        desiredCapabilities.setCapability("udid", System.getenv("UDID"));
 
         URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub");
 
