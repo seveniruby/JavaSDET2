@@ -89,6 +89,14 @@
             <version>2.9.9</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.1.2</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -102,6 +110,12 @@
 <!--                        <exclude>some test to exclude here</exclude>-->
 <!--                    </excludes>-->
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.8.2</version>
             </plugin>
 
 
