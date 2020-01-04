@@ -4,6 +4,9 @@ import app.page.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import framework.PageObjectElement;
+import framework.PageObjectMethod;
+import framework.PageObjectModel;
 import org.junit.Test;
 
 import java.net.MalformedURLException;
@@ -17,9 +20,9 @@ public class TestSteps {
     public void  steps() throws JsonProcessingException {
         HashMap<String, PageObjectMethod> testcase=new HashMap<String, PageObjectMethod>();
         PageObjectMethod testcaseStep=new PageObjectMethod();
-        List<HashMap<String, String>> steps=new ArrayList<>();
+        List<HashMap<String, Object>> steps=new ArrayList<>();
 
-        HashMap<String, String> map=new HashMap<>();
+        HashMap<String, Object> map=new HashMap<>();
         map.put("id", "xxxx");
         map.put("send", "xxxx");
         steps.add(map);
@@ -61,9 +64,9 @@ public class TestSteps {
         model.elements.put("search_locator", element);
 
         PageObjectMethod method=new PageObjectMethod();
-        List<HashMap<String, String>> steps=new ArrayList<>();
+        List<HashMap<String, Object>> steps=new ArrayList<>();
 
-        HashMap<String, String> map=new HashMap<>();
+        HashMap<String, Object> map=new HashMap<>();
         map.put("id", "xxxx");
         map.put("send", "xxxx");
         steps.add(map);

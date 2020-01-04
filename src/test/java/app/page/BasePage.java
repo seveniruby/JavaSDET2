@@ -1,8 +1,9 @@
 package app.page;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import framework.PageObjectMethod;
+import framework.PageObjectModel;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -39,6 +40,10 @@ public class BasePage {
     }
 
     private static HashMap<String, Object> results=new HashMap<>();
+
+    public BasePage(){
+        model.engine="appium";
+    }
 
     //通用元素定位与异常处理机制
     public static WebElement findElement(By by) {
@@ -153,18 +158,18 @@ public class BasePage {
             WebElement element = null;
 
             //todo: 多个可能定位，多平台支持，多版本的支持
-            String id=step.get("id");
+            String id=step.get("id").toString();
             if(id!=null){
                 element=findElement(By.id(id));
             }else if(step.get("xpath")!=null){
-                element=findElement(By.xpath(step.get("xpath")));
+                element=findElement(By.xpath(step.get("xpath").toString()));
             }else if(step.get("aid")!=null){
-                element=findElement(MobileBy.AccessibilityId(step.get("aid")));
+                element=findElement(MobileBy.AccessibilityId(step.get("aid").toString()));
             }else if(step.get("element")!=null){
                 element=findElement(model.elements.get(step.get("element")).getLocator());
             }
 
-            String send=step.get("send");
+            String send=step.get("send").toString();
 //            params.entrySet().forEach(kv->{
 //                send=send.replace("{"+ kv.getKey() +"}", kv.getValue().toString());
 //            });
@@ -183,8 +188,8 @@ public class BasePage {
                 element.sendKeys(send);
 
             }else if(step.get("get")!=null){
-                String attribute=element.getAttribute(step.get("get"));
-                getResults().put(step.get("dump"), attribute);
+                String attribute=element.getAttribute(step.get("get").toString());
+                getResults().put(step.get("dump").toString(), attribute);
 
             }else{
                 element.click();

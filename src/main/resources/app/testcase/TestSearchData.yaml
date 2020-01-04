@@ -1,0 +1,13 @@
+name: [alibaba, jd, xiaomi]
+price: [100, 8.0, 20.0]
+pattern: [ name=alibaba && price=100]
+
+-
+  - alibaba
+  - 100.0
+-
+  - xiaomi
+  - 8.0
+-
+  - jd
+  - 20.0

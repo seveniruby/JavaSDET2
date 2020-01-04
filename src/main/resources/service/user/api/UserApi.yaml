@@ -1,0 +1,7 @@
+methods:
+  get:
+    query:
+      userid: ${userid}
+    method: get
+    url: https://qyapi.weixin.qq.com/cgi-bin/user/get
+

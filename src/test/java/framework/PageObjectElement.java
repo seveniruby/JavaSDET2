@@ -1,5 +1,6 @@
-package app.page;
+package framework;
 
+import app.page.BasePage;
 import org.openqa.selenium.By;
 
 import java.util.HashMap;
@@ -10,7 +11,7 @@ public class PageObjectElement {
     public By getLocator(){
         //todo: xxxx
 
-        String osOrigin=BasePage.driver.getCapabilities().getPlatform().toString().toLowerCase();
+        String osOrigin= BasePage.driver.getCapabilities().getPlatform().toString().toLowerCase();
         return By.id("xxx");
     }
     public By getLocator(String os, String version){
