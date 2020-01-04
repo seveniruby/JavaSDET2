@@ -1,0 +1,41 @@
+{
+  "errcode": 0,
+  "errmsg": "ok",
+  "userid": "{{userid}}",
+  "name": "{{name}}",
+  "department": [
+    532
+  ],
+  "position": "测试工程师",
+  "mobile": "{{mobile}}",
+  "gender": "1",
+  "email": "{{mobile}}@qq.com",
+  "avatar": "",
+  "status": 4,
+  "isleader": 0,
+  "extattr": {
+    "attrs": [
+
+    ]
+  },
+  "telephone": "",
+  "enable": 1,
+  "hide_mobile": 0,
+  "order": [
+    0
+  ],
+  "external_profile": {
+    "external_attr": [
+
+    ],
+    "external_corp_name": ""
+  },
+  "qr_code": "https://open.work.weixin.qq.com/wwopen/userQRCode?vcode=vc96e952319d0c1153",
+  "alias": "思寒",
+  "is_leader_in_dept": [
+    0
+  ],
+  "address": "北京市昌平区回龙观东大街腾讯众创空间",
+  "thumb_avatar": ""
+}
+
