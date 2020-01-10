@@ -148,6 +148,8 @@ public class TestUser {
     static Stream<Arguments> deleteByParamsFromYamlData() {
 
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+
+        //生成一个代表List<HashMap>的类型，用于传递给readValue
         TypeReference<List<HashMap<String, Object>>> typeRef =
                 new TypeReference<List<HashMap<String, Object>>>() {
                 };
