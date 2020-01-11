@@ -15,6 +15,9 @@ public class TestClassictDepart {
     static int parentDepartId=532;
     @BeforeAll
     public static void getToken() {
+
+        RestAssured.proxy(8888);
+
         token=given()
                 .param("corpid", "wwd6da61649bd66fea")
                 .param("corpsecret", "C7uGOrNyxWWzwBsUyWEbLdbZBDrc71PNOhyQ_YYPhts")

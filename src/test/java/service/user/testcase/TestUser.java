@@ -33,7 +33,7 @@ public class TestUser {
     public void info() {
         User user = new User();
         user.get("seveniruby1564217505.480352").then()
-                .body("name", equalTo("seveniruby 1564912419.113182"));
+                .body("name", equalTo("name for testing"));
     }
 
     @Test
