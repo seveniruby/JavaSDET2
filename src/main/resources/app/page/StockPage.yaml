@@ -1,0 +1,8 @@
+methods:
+  deleteAll:
+    steps:
+      - id: edit_group
+      - id: check_all
+      - id: cancel_follow
+      - id: md_buttonDefaultPositive
+      - id: action_close

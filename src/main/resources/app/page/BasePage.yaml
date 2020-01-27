@@ -1,0 +1,11 @@
+methods:
+  search:
+    steps:
+      - id: home_search
+      - id: search_input_text
+        send: pdd
+      - id: name
+      - xpath: //*[@text='PDD']
+  cancel:
+    steps:
+      - id: ddd

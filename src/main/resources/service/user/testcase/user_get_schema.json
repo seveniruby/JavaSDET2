@@ -1,0 +1,294 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "errcode",
+    "errmsg",
+    "userid",
+    "name",
+    "department",
+    "position",
+    "mobile",
+    "gender",
+    "email",
+    "avatar",
+    "status",
+    "isleader",
+    "extattr",
+    "telephone",
+    "enable",
+    "hide_mobile",
+    "order",
+    "external_profile",
+    "qr_code",
+    "alias",
+    "is_leader_in_dept",
+    "address",
+    "thumb_avatar"
+  ],
+  "properties": {
+    "errcode": {
+      "$id": "#/properties/errcode",
+      "type": "integer",
+      "title": "The Errcode Schema",
+      "default": 0,
+      "examples": [
+        0
+      ]
+    },
+    "errmsg": {
+      "$id": "#/properties/errmsg",
+      "type": "string",
+      "title": "The Errmsg Schema",
+      "default": "",
+      "examples": [
+        "ok"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "userid": {
+      "$id": "#/properties/userid",
+      "type": "string",
+      "title": "The Userid Schema",
+      "default": "",
+      "examples": [
+        "seveniruby1564217505.480352"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "name": {
+      "$id": "#/properties/name",
+      "type": "string",
+      "title": "The Name Schema",
+      "default": "",
+      "examples": [
+        "name for testing"
+      ],
+      "pattern": "^([0-9]*)$"
+    },
+    "department": {
+      "$id": "#/properties/department",
+      "type": "array",
+      "title": "The Department Schema",
+      "items": {
+        "$id": "#/properties/department/items",
+        "type": "integer",
+        "title": "The Items Schema",
+        "default": 0,
+        "examples": [
+          1
+        ]
+      }
+    },
+    "position": {
+      "$id": "#/properties/position",
+      "type": "string",
+      "title": "The Position Schema",
+      "default": "",
+      "examples": [
+        ""
+      ],
+      "pattern": "^(.*)$"
+    },
+    "mobile": {
+      "$id": "#/properties/mobile",
+      "type": "string",
+      "title": "The Mobile Schema",
+      "default": "",
+      "examples": [
+        ""
+      ],
+      "pattern": "^(.*)$"
+    },
+    "gender": {
+      "$id": "#/properties/gender",
+      "type": "string",
+      "title": "The Gender Schema",
+      "default": "",
+      "examples": [
+        "1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "email": {
+      "$id": "#/properties/email",
+      "type": "string",
+      "title": "The Email Schema",
+      "default": "",
+      "examples": [
+        "seveniruby1564217505.480352@testerhome.com"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "avatar": {
+      "$id": "#/properties/avatar",
+      "type": "string",
+      "title": "The Avatar Schema",
+      "default": "",
+      "examples": [
+        ""
+      ],
+      "pattern": "^(.*)$"
+    },
+    "status": {
+      "$id": "#/properties/status",
+      "type": "integer",
+      "title": "The Status Schema",
+      "default": 0,
+      "examples": [
+        4
+      ],
+      "minimum": 5.0,
+      "maximum": 10.0
+    },
+    "isleader": {
+      "$id": "#/properties/isleader",
+      "type": "integer",
+      "title": "The Isleader Schema",
+      "default": 0,
+      "examples": [
+        0
+      ]
+    },
+    "extattr": {
+      "$id": "#/properties/extattr",
+      "type": "object",
+      "title": "The Extattr Schema",
+      "required": [
+        "attrs"
+      ],
+      "properties": {
+        "attrs": {
+          "$id": "#/properties/extattr/properties/attrs",
+          "type": "array",
+          "title": "The Attrs Schema"
+        }
+      }
+    },
+    "telephone": {
+      "$id": "#/properties/telephone",
+      "type": "string",
+      "title": "The Telephone Schema",
+      "default": "",
+      "examples": [
+        ""
+      ],
+      "pattern": "^(.*)$"
+    },
+    "enable": {
+      "$id": "#/properties/enable",
+      "type": "integer",
+      "title": "The Enable Schema",
+      "default": 0,
+      "examples": [
+        1
+      ]
+    },
+    "hide_mobile": {
+      "$id": "#/properties/hide_mobile",
+      "type": "integer",
+      "title": "The Hide_mobile Schema",
+      "default": 0,
+      "examples": [
+        0
+      ]
+    },
+    "order": {
+      "$id": "#/properties/order",
+      "type": "array",
+      "title": "The Order Schema",
+      "items": {
+        "$id": "#/properties/order/items",
+        "type": "integer",
+        "title": "The Items Schema",
+        "default": 0,
+        "examples": [
+          0
+        ]
+      }
+    },
+    "external_profile": {
+      "$id": "#/properties/external_profile",
+      "type": "object",
+      "title": "The External_profile Schema",
+      "required": [
+        "external_attr",
+        "external_corp_name"
+      ],
+      "properties": {
+        "external_attr": {
+          "$id": "#/properties/external_profile/properties/external_attr",
+          "type": "array",
+          "title": "The External_attr Schema"
+        },
+        "external_corp_name": {
+          "$id": "#/properties/external_profile/properties/external_corp_name",
+          "type": "string",
+          "title": "The External_corp_name Schema",
+          "default": "",
+          "examples": [
+            ""
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "qr_code": {
+      "$id": "#/properties/qr_code",
+      "type": "string",
+      "title": "The Qr_code Schema",
+      "default": "",
+      "examples": [
+        "https://open.work.weixin.qq.com/wwopen/userQRCode?vcode=vcc2195314e27a2be7"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "alias": {
+      "$id": "#/properties/alias",
+      "type": "string",
+      "title": "The Alias Schema",
+      "default": "",
+      "examples": [
+        ""
+      ],
+      "pattern": "^(.*)$"
+    },
+    "is_leader_in_dept": {
+      "$id": "#/properties/is_leader_in_dept",
+      "type": "array",
+      "title": "The Is_leader_in_dept Schema",
+      "items": {
+        "$id": "#/properties/is_leader_in_dept/items",
+        "type": "integer",
+        "title": "The Items Schema",
+        "default": 0,
+        "examples": [
+          0
+        ]
+      }
+    },
+    "address": {
+      "$id": "#/properties/address",
+      "type": "string",
+      "title": "The Address Schema",
+      "default": "",
+      "examples": [
+        "address for testing"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "thumb_avatar": {
+      "$id": "#/properties/thumb_avatar",
+      "type": "string",
+      "title": "The Thumb_avatar Schema",
+      "default": "",
+      "examples": [
+        ""
+      ],
+      "pattern": "^(.*)$"
+    }
+  }
+}

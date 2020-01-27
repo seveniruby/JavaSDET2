@@ -1,20 +1,27 @@
 package app;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.android.nativekey.KeyEventFlag;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class SampleTest {
 
-    private AndroidDriver driver;
+    private AndroidDriver<AndroidElement> driver;
 
     @Before
     public void setUp() throws MalformedURLException {
@@ -22,8 +29,9 @@ public class SampleTest {
         desiredCapabilities.setCapability("platformName", "android");
         desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
         desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
-        desiredCapabilities.setCapability("noReset", false);
+        desiredCapabilities.setCapability("noReset", true);
         desiredCapabilities.setCapability("autoGrantPermissions", true);
+        desiredCapabilities.setCapability("dontStopAppOnReset", true);
 
         URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub");
 
@@ -41,6 +49,13 @@ public class SampleTest {
         el3.click();
         MobileElement el4 = (MobileElement) driver.findElementById("com.xueqiu.android:id/current_price");
         el4.click();
+    }
+
+
+    @Test
+    public void getPageSource(){
+        System.out.println(driver.getPageSource());
+        driver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
 
     @After
